@@ -1,4 +1,12 @@
-package com.mmelnychuik.petclinic.mypetclinic;
+/*
+ * Created 2020., 8., 21.
+ * by mmelnychuk
+ */
+
+package com.mmelnychuik.petclinic.mypetclinic;/*
+ * Created 2020., 8., 21.
+ * by mmelnychuk
+ */
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
