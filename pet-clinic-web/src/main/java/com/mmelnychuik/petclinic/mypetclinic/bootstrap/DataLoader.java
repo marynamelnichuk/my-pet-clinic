@@ -5,10 +5,12 @@
 
 package com.mmelnychuik.petclinic.mypetclinic.bootstrap;
 
+import com.mmelnychuik.petclinic.mypetclinic.model.Owner;
+import com.mmelnychuik.petclinic.mypetclinic.model.Vet;
 import com.mmelnychuik.petclinic.mypetclinic.services.OwnerService;
 import com.mmelnychuik.petclinic.mypetclinic.services.VetService;
-import com.mmelnychuik.petclinic.mypetclinic.services.impl.OwnerServiceImpl;
-import com.mmelnychuik.petclinic.mypetclinic.services.impl.VetServiceImpl;
+import com.mmelnychuik.petclinic.mypetclinic.services.map.OwnerMapService;
+import com.mmelnychuik.petclinic.mypetclinic.services.map.VetMapService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +21,38 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
 
     public DataLoader() {
-        ownerService = new OwnerServiceImpl();
-        vetService = new VetServiceImpl();
+        ownerService = new OwnerMapService();
+        vetService = new VetMapService();
     }
 
     @Override
     public void run(String... args) throws Exception {
+        Owner owner1 = new Owner();
+        owner1.setId(1L);
+        owner1.setFirstName("Sasha");
+        owner1.setLastName("Mayer");
+        ownerService.save(owner1);
 
+        Owner owner2 = new Owner();
+        owner2.setId(2L);
+        owner2.setFirstName("Maryna");
+        owner2.setLastName("Melnychuk");
+        ownerService.save(owner2);
+
+        System.out.println("Loaded Owners...");
+
+        Vet vet1 = new Vet();
+        vet1.setId(1L);
+        vet1.setFirstName("Bob");
+        vet1.setLastName("Sat");
+        vetService.save(vet1);
+
+        Vet vet2 = new Vet();
+        vet2.setId(2L);
+        vet2.setFirstName("Sam");
+        vet2.setLastName("Golf");
+        vetService.save(vet2);
+
+        System.out.println("Loaded Vets...");
     }
 }
