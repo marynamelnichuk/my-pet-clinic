@@ -7,6 +7,7 @@ package com.mmelnychuik.petclinic.mypetclinic.controllers;
 
 import com.mmelnychuik.petclinic.mypetclinic.services.VetService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/vets")
@@ -20,7 +21,8 @@ public class VetController {
     }
 
     @RequestMapping({"", "/index", "/index.html"})
-    public String listVets(){
+    public String listVets(Model model){
+        model.addAttribute("vets", vetService.findAll());
         return "vets/index";
     }
 
