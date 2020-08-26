@@ -14,6 +14,7 @@
 		<version>2.3.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>com.mmelnychuik.petclinic</groupId>
 	<artifactId>my-pet-clinic</artifactId>
 	<version>0.0.2-SNAPSHOT</version>
@@ -48,6 +49,6 @@
 		<url>https://github.com/marynamelnichuk/my-pet-clinic</url>
 		<connection>scm:git:https://github.com/marynamelnichuk/my-pet-clinic.git</connection>
   	  <tag>HEAD</tag>
-  </scm>
+  	</scm>
 
 </project>
