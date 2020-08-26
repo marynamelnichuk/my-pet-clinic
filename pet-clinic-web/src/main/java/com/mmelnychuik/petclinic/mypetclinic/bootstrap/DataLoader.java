@@ -9,8 +9,7 @@ import com.mmelnychuik.petclinic.mypetclinic.model.Owner;
 import com.mmelnychuik.petclinic.mypetclinic.model.Vet;
 import com.mmelnychuik.petclinic.mypetclinic.services.OwnerService;
 import com.mmelnychuik.petclinic.mypetclinic.services.VetService;
-import com.mmelnychuik.petclinic.mypetclinic.services.map.OwnerMapService;
-import com.mmelnychuik.petclinic.mypetclinic.services.map.VetMapService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +19,10 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerMapService();
-        vetService = new VetMapService();
+    @Autowired
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
