@@ -5,11 +5,13 @@
 
 package com.mmelnychuik.petclinic.mypetclinic.services.map;
 
+import com.mmelnychuik.petclinic.mypetclinic.model.BaseEntity;
 import com.mmelnychuik.petclinic.mypetclinic.services.CrudService;
 
 import java.util.Set;
 
-public abstract class AbstractMapServiceStandardImpl<T, ID> extends AbstractMapService<T, ID> implements CrudService<T, ID> {
+public abstract class AbstractMapServiceStandardImpl<T extends BaseEntity, ID extends Long>
+        extends AbstractMapService<T, ID> implements CrudService<T, ID> {
 
     @Override
     public Set<T> findAll() {
@@ -29,5 +31,10 @@ public abstract class AbstractMapServiceStandardImpl<T, ID> extends AbstractMapS
     @Override
     public T findById(ID id) {
         return super.findById(id);
+    }
+
+    @Override
+    public T save(T object) {
+        return super.save(object);
     }
 }
